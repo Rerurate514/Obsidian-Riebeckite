@@ -3,12 +3,21 @@ import { Backlinks } from "@riebeckite/plugin-backlinks";
 import { Breadcrumbs } from "@riebeckite/plugin-breadcrumbs";
 import { LocalGraph } from "@riebeckite/plugin-local-graph";
 import { SidebarNavigation, resolveSiteNavigation } from "@riebeckite/plugin-navigation";
+import type { NavigationItem } from "@riebeckite/plugin-navigation";
 import { Properties } from "@riebeckite/plugin-properties";
 import { RecentPosts } from "@riebeckite/plugin-recent-posts";
 import { RelatedPosts } from "@riebeckite/plugin-related-posts";
 import { TableOfContents } from "@riebeckite/plugin-toc";
 import { useSiteContext } from "@riebeckite/ui";
 import { PoweredByRiebeckite } from "./powered-by-riebeckite";
+
+function collapseNavigation(items: readonly NavigationItem[]): NavigationItem[] {
+  return items.map((item) =>
+    item.children
+      ? { ...item, collapsed: true, children: collapseNavigation(item.children) }
+      : { ...item, collapsed: true },
+  );
+}
 
 export function SiteArticle() {
   const site = useSiteContext();
@@ -22,11 +31,9 @@ export function SiteArticle() {
         <aside class="site-article__sidebar">
           <p class="site-article__sidebar-title">ノート</p>
           <SidebarNavigation
-            items={navigation?.primary ?? []}
+            items={collapseNavigation(navigation?.primary ?? [])}
             label="ノート"
             collapsible
-            autoExpandActive
-            stateKey="site-sidebar"
           />
         </aside>
         <ArticleContent>

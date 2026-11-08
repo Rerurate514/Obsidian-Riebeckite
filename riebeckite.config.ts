@@ -111,7 +111,7 @@ export default defineConfig({
     backlinks(),
     relatedPosts({ limit: 5, useTags: true, useBacklinks: true }),
     recentPosts(),
-    taxonomy({ tags: true, folders: true, related: true }),
+    taxonomy({ tags: true, folders: true, related: true, folderDepth: 1 }),
     folderPages(),
     localGraph(),
     hoverPreview({ delay: 120, excerptLength: 160, selector: 'a[href^="/"]' }),

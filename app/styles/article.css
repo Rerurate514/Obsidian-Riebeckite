@@ -77,6 +77,7 @@
     align-self: start;
     max-height: calc(100vh - var(--site-toc-sticky-top) - 1rem);
     overflow-y: auto;
+    scrollbar-gutter: stable;
     padding-inline-end: 1.5rem;
     border-inline-end: 1px solid var(--rb-color-border);
   }
