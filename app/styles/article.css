@@ -1,0 +1,101 @@
+.site-article {
+  width: min(100% - 2rem, 90rem);
+  padding-block: 2rem 4rem;
+}
+
+.site-article__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 48rem);
+  justify-content: center;
+}
+
+.site-article__sidebar {
+  display: none;
+  min-width: 0;
+}
+
+.site-article__sidebar-title {
+  margin: 0 0 0.75rem;
+  color: var(--rb-color-muted);
+  font-family: var(--rb-font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rb-article-body {
+  min-width: 0;
+  padding-inline: var(--rb-space-2, 1rem);
+}
+
+.site-article__footer {
+  min-width: 0;
+}
+
+.site-powered-by {
+  margin-block: var(--rb-space-6, 3rem) 0;
+  color: var(--rb-color-text-muted, color-mix(in oklab, currentColor 65%, transparent));
+  font-size: var(--rb-font-size-sm, 0.875rem);
+}
+
+.site-article__aside {
+  min-width: 0;
+  margin-block-start: 2rem;
+  padding-block-start: 1rem;
+  border-block-start: 1px solid var(--rb-color-border);
+}
+
+@media (min-width: 76rem) {
+  .site-article__layout {
+    grid-template-columns:
+      minmax(11rem, 1fr)
+      minmax(0, 46rem)
+      minmax(11rem, 1fr);
+    gap: 2.5rem;
+  }
+
+  .site-article__layout > .site-article__sidebar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .site-article__layout > .rb-article-body {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .site-article__layout > .site-article__aside {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .site-article__sidebar {
+    display: block;
+    position: sticky;
+    top: var(--site-toc-sticky-top);
+    align-self: start;
+    max-height: calc(100vh - var(--site-toc-sticky-top) - 1rem);
+    overflow-y: auto;
+    padding-inline-end: 1.5rem;
+    border-inline-end: 1px solid var(--rb-color-border);
+  }
+
+  .site-article__aside {
+    position: sticky;
+    top: var(--site-toc-sticky-top);
+    align-self: start;
+    max-height: calc(100vh - var(--site-toc-sticky-top) - 1rem);
+    overflow-y: auto;
+    margin: 0;
+    padding-block-start: 0;
+    padding-inline-start: 1.5rem;
+    border-block-start: 0;
+    border-inline-start: 1px solid var(--rb-color-border);
+  }
+
+  .site-article .site-article__aside :is(.rr-backlinks, .rr-local-graph) {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
