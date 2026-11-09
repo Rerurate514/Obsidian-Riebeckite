@@ -41,7 +41,7 @@ export function SiteFooter() {
         </p>
         <div class="site-footer__rights-project">
           <p class="site-footer__rights-label">Project Code</p>
-          <p class="site-footer__rights-name">{site?.config.site.title}　Riebeckite</p>
+          <p class="site-footer__rights-name">Rerurate Digital Garden Explorer　Riebeckite</p>
         </div>
         <p class="site-footer__respect">
           I respect Kristen Wright and LT's design team.
