@@ -45,6 +45,10 @@
   padding-block-start: 1rem;
 }
 
+.site-article__aside .rr-backlinks__link {
+  border-bottom: 0;
+}
+
 @media (min-width: 76rem) {
   .site-article__layout {
     grid-template-columns:
@@ -76,8 +80,12 @@
     align-self: start;
     max-height: calc(100vh - var(--site-toc-sticky-top) - 1rem);
     overflow-y: auto;
-    scrollbar-gutter: stable;
+    scrollbar-width: none;
     padding-inline-end: 1.5rem;
+  }
+
+  .site-article__sidebar::-webkit-scrollbar {
+    display: none;
   }
 
   .site-article__aside {
