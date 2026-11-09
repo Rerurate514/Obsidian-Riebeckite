@@ -7,7 +7,8 @@ import {
 import { createPublicContentView } from "@riebeckite/core";
 import { SiteProvider } from "@riebeckite/ui";
 import { jsxRenderer } from "hono/jsx-renderer";
-import { SiteFooter, SiteHeader } from "../components/site-header";
+import { SiteHeader } from "../components/site-header";
+import { SiteFooter } from "../components/site-footer";
 import { content } from "virtual:riebeckite/content";
 import { config } from "virtual:riebeckite/config";
 
@@ -31,7 +32,7 @@ export default jsxRenderer(async ({ children }, c) => {
       <ThemeRoot>
         <head>
           <RiebeckiteHead
-            seo={c.get("seo")} 
+            seo={c.get("seo")}
             themeStyle={themeStyle}
             themeStylesheets={getThemeStylesheets(config.theme.stylesheets)}
           />
