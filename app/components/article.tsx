@@ -1,7 +1,6 @@
 import { Article, ArticleBody, ArticleContent, ArticleFooter } from "@riebeckite/honox/ui";
 import { Backlinks } from "@riebeckite/plugin-backlinks";
 import { Breadcrumbs } from "@riebeckite/plugin-breadcrumbs";
-import { LocalGraph } from "@riebeckite/plugin-local-graph";
 import { SidebarNavigation, resolveSiteNavigation } from "@riebeckite/plugin-navigation";
 import type { NavigationItem } from "@riebeckite/plugin-navigation";
 import { Properties } from "@riebeckite/plugin-properties";
@@ -49,7 +48,6 @@ export function SiteArticle() {
         <aside class="site-article__aside">
           <TableOfContents placement="desktop-rail" />
           <Backlinks />
-          <LocalGraph />
         </aside>
       </div>
     </Article>

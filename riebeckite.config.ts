@@ -1,6 +1,8 @@
 import { defineConfig, definePlugin } from "@riebeckite/core";
 import { permalink } from "@riebeckite/plugin-permalink";
 import { seo } from "@riebeckite/plugin-seo";
+import { ogImage } from "@riebeckite/plugin-og-image";
+import { highlight } from "@riebeckite/plugin-highlight";
 import { obsidianMarkdown } from "@riebeckite/plugin-obsidian-markdown";
 import { colorMode } from "@riebeckite/plugin-color-mode";
 import { toc } from "@riebeckite/plugin-toc";
@@ -15,9 +17,9 @@ import { relatedPosts } from "@riebeckite/plugin-related-posts";
 import { recentPosts } from "@riebeckite/plugin-recent-posts";
 import { taxonomy } from "@riebeckite/plugin-taxonomy";
 import { folderPages } from "@riebeckite/plugin-folder-pages";
-import { localGraph } from "@riebeckite/plugin-local-graph";
 import { hoverPreview } from "@riebeckite/plugin-hover-preview";
 import { media } from "@riebeckite/plugin-media";
+import { imageOptimizer } from "@riebeckite/plugin-image-optimizer";
 import { responsiveImage } from "@riebeckite/plugin-responsive-image";
 import { lightbox } from "@riebeckite/plugin-lightbox";
 import { hardBreaks } from "@riebeckite/plugin-hard-breaks";
@@ -26,6 +28,10 @@ import { pdf } from "@riebeckite/plugin-pdf";
 import { canvas } from "@riebeckite/plugin-canvas";
 import { autoCardLink } from "@riebeckite/plugin-autocardlink";
 import { mermaidPele } from "@riebeckite/plugin-mermaid-pele";
+import { ux } from "@riebeckite/plugin-ux";
+import { textFragment } from "@riebeckite/plugin-text-fragment";
+import { sidenotes } from "@riebeckite/plugin-sidenotes";
+import { quality } from "@riebeckite/plugin-quality";
 import { rerurateTheme } from "@riebeckite/theme-rerurate";
 
 const decodedPermalinkLookup = definePlugin({
@@ -74,6 +80,7 @@ export default defineConfig({
     title: "Rerurate Didital Garden Explore",
     description: "",
     baseUrl: "https://rerurate.com",
+    defaultOgImage: "/og-image.png",
     locale: "ja-JP",
   },
   content: {
@@ -90,15 +97,30 @@ export default defineConfig({
       "Obsidian-Mynote-Publish",
     ],
   },
+  spa: true,
   theme: rerurateTheme(),
   plugins: [
     permalink({
       id: { strategy: "hash", length: 12 },
-      resolvePath: ({ content, id }) => (content.slug === "index" ? "/" : `/n/${id}`),
+      resolvePath: ({ content, id }) => (content.slug === "index" ? "/" : `/${id}`),
     }),
     seo({ sitemap: true, robots: true }),
+    ogImage({ preset: "card" }),
+    highlight(),
     obsidianMarkdown(),
     colorMode(),
+    ux({ backToTopLabel: "ページ上部へ" }),
+    textFragment({
+      labels: {
+        regionLabel: "選択テキストを共有",
+        copyLinkLabel: "リンクをコピー",
+        copyQuoteLabel: "引用をコピー",
+        linkCopiedLabel: "リンクをコピーしました",
+        quoteCopiedLabel: "引用をコピーしました",
+        copyFailedLabel: "コピーできませんでした",
+      },
+    }),
+    sidenotes({ placement: "margin", ariaLabel: "補足", openLabel: "脚注" }),
     toc(),
     codeEnhance({ lineNumbers: true, copyButton: true, filename: true, lineHighlight: true, diffHighlight: true }),
     search(),
@@ -113,9 +135,9 @@ export default defineConfig({
     recentPosts(),
     taxonomy({ tags: true, folders: true, related: true, folderDepth: 1 }),
     folderPages(),
-    localGraph(),
     hoverPreview({ delay: 120, excerptLength: 160, selector: 'a[href^="/"]' }),
     media(),
+    imageOptimizer(),
     responsiveImage(),
     lightbox(),
     hardBreaks(),
@@ -124,5 +146,6 @@ export default defineConfig({
     canvas({ render: "both" }),
     autoCardLink(),
     mermaidPele(),
+    quality(),
   ],
 });

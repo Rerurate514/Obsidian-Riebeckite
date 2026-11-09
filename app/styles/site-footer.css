@@ -1,47 +1,51 @@
 .site-footer {
   width: min(100% - 2rem, 90rem);
-  margin-block-start: 1rem;
-  padding-block: 1.25rem 2.5rem;
+  margin-block-start: var(--rb-space-8, 4rem);
+  padding-block: var(--rb-space-4, 2rem) var(--rb-space-6, 3rem);
   border-block-start: 1px solid var(--rb-color-border-strong);
   color: var(--rb-color-muted);
   font-size: 0.85rem;
 }
 
 .site-footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  gap: var(--rb-space-4, 2rem);
 }
 
 .site-footer__identity {
-  min-width: min(100%, 18rem);
-  margin-inline-end: auto;
+  min-width: 0;
 }
 
 .site-footer__note {
-  display: block;
-  margin: 0;
-  font-family: var(--rb-font-heading);
+  display: inline-block;
+  max-width: 22ch;
   color: var(--rb-color-ink);
+  font-family: var(--rb-font-heading);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
   text-decoration: none;
+  text-wrap: balance;
 }
 
-.site-footer__meta {
-  margin: 0.3rem 0 0;
-  font-size: 0.75rem;
+.site-footer__note:hover,
+.site-footer__note:focus-visible {
+  color: var(--rb-color-accent);
 }
 
-.site-footer__meta a {
-  color: inherit;
-  text-underline-offset: 0.2em;
+.site-footer__label {
+  margin: 0 0 0.7rem;
+  font-family: var(--rb-font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .site-footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  gap: 0.35rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -49,5 +53,39 @@
 
 .site-footer__links a {
   color: inherit;
+  text-decoration: none;
+}
+
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible {
+  color: var(--rb-color-accent);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-block-start: var(--rb-space-6, 3rem);
+  padding-block-start: 0.9rem;
+  border-block-start: 1px solid var(--rb-color-border);
+  font-size: 0.75rem;
+}
+
+.site-footer__bottom p {
+  margin: 0;
+}
+
+.site-footer__bottom a {
+  color: inherit;
   text-underline-offset: 0.2em;
+}
+
+@media (min-width: 48rem) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: start;
+    gap: var(--rb-space-6, 3rem);
+  }
 }

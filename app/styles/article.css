@@ -43,7 +43,6 @@
   min-width: 0;
   margin-block-start: 2rem;
   padding-block-start: 1rem;
-  border-block-start: 1px solid var(--rb-color-border);
 }
 
 @media (min-width: 76rem) {
@@ -79,7 +78,6 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
     padding-inline-end: 1.5rem;
-    border-inline-end: 1px solid var(--rb-color-border);
   }
 
   .site-article__aside {
@@ -91,8 +89,6 @@
     margin: 0;
     padding-block-start: 0;
     padding-inline-start: 1.5rem;
-    border-block-start: 0;
-    border-inline-start: 1px solid var(--rb-color-border);
   }
 
   .site-article .site-article__aside :is(.rr-backlinks, .rr-local-graph) {

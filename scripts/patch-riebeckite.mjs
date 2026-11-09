@@ -14,6 +14,16 @@ const patches = [
     manifest.publicRedirects.get(path.split("/").map(encodeURIComponent).join("/"));`,
   },
   {
+    file: "node_modules/harfbuzzjs/hb.js",
+    from: 'scriptDirectory=__dirname+"/";',
+    to: 'scriptDirectory=process.cwd()+"/node_modules/harfbuzzjs/";',
+  },
+  {
+    file: "node_modules/@riebeckite/og-image/dist/index.js",
+    from: "      fileURLToPath(\n        new URL(\n          `./fonts/noto-sans-jp-japanese-${weight}-normal.woff`,\n          import.meta.url\n        )\n      )",
+    to: "      `${process.cwd()}/node_modules/@riebeckite/og-image/dist/fonts/noto-sans-jp-japanese-${weight}-normal.woff`",
+  },
+  {
     file: "node_modules/@riebeckite/plugin-folder-pages/dist/index.js",
     from: "          const page = modelFor(manifest).byPath.get(pathname);",
     to: `          const pages = modelFor(manifest).byPath;
