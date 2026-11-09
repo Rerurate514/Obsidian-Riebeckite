@@ -47,7 +47,7 @@ export function SiteArticle() {
         </ArticleContent>
         <aside class="site-article__aside">
           <TableOfContents placement="desktop-rail" borders={{ blockEnd: false }} />
-          <Backlinks />
+          <Backlinks borders={{ items: false }} />
         </aside>
       </div>
     </Article>

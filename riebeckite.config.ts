@@ -35,43 +35,24 @@ import { quality } from "@riebeckite/plugin-quality";
 import { diagnostics } from "@riebeckite/plugin-diagnostics";
 import { rerurateTheme } from "@riebeckite/theme-rerurate";
 
-const decodedPermalinkLookup = definePlugin({
-  name: "decoded-permalink-lookup",
-  developmentRouteManifest: true,
-  onManifestCreated: ({ manifest }) => {
-    const decodePath = (path: string) =>
-      path
-        .split("/")
-        .map((segment) => {
-          try {
-            return decodeURIComponent(segment);
-          } catch {
-            return segment;
-          }
-        })
-        .join("/");
-    manifest.byRoutablePermalink = new Map(
-      [...manifest.byRoutablePermalink].flatMap(([path, entry]) => [
-        [path, entry],
-        [decodePath(path), entry],
-      ]),
-    );
-  },
-});
+const normalizeAliasPath = (path: string) =>
+  path.replace(/%[0-9A-Fa-f]{2}|[A-Z]/g, (part) =>
+    part.startsWith("%") ? part : part.toLowerCase(),
+  );
 
-const aliasLengthGuard = definePlugin({
-  name: "alias-length-guard",
+const dedupeAliasesByCase = definePlugin({
+  name: "dedupe-aliases-by-case",
   extendContentLocations: ({ locations }) => {
     for (const location of locations.values()) {
-      const seen = new Set<string>();
-      location.redirects = (location.redirects ?? []).filter((redirect) => {
-        const key = redirect.path.toLowerCase();
-        if (seen.has(key)) return false;
-        if (/[?#]/.test(redirect.path)) return false;
-        if (!redirect.path.split("/").every((segment) => segment.length <= 209)) return false;
-        seen.add(key);
-        return true;
-      });
+      const byPath = new Map<
+        string,
+        NonNullable<typeof location.redirects>[number]
+      >();
+      for (const redirect of location.redirects ?? []) {
+        const path = normalizeAliasPath(redirect.path);
+        if (!byPath.has(path)) byPath.set(path, { ...redirect, path });
+      }
+      location.redirects = [...byPath.values()];
     }
   },
 });
@@ -128,9 +109,8 @@ export default defineConfig({
     breadcrumbs(),
     navigation(),
     properties({ include: ["created", "modified", "tags", "status"], fields: { created: { type: "date", format: "yyyy-MM-dd" }, modified: { type: "date", format: "yyyy-MM-dd" }, tags: { type: "tags", variant: "chips" }, status: { type: "badge", variants: { active: "success", draft: "warning", archived: "danger" } } } }),
-    alias({ status: 308 }),
-    aliasLengthGuard,
-    decodedPermalinkLookup,
+    alias({ status: 308, maxSegmentLength: 209 }),
+    dedupeAliasesByCase,
     backlinks(),
     relatedPosts({ limit: 5, useTags: true, useBacklinks: true }),
     recentPosts(),

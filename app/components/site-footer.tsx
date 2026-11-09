@@ -12,7 +12,7 @@ export function SiteFooter() {
             {site?.config.site.title}
           </a>
           <p class="site-footer__author">
-            <span>created by</span>{" "}
+            <span>Created by</span>{" "}
             <a href="https://github.com/Rerurate514">Rerurate_514</a>
           </p>
         </div>
@@ -34,18 +34,21 @@ export function SiteFooter() {
       </div>
       <div class="site-footer__rights">
         <p class="site-footer__rights-title">
-          Finally, this site is inspired{" "}
+          Inspired by{" "}
           <span class="site-footer__red">LON</span>
           <span class="site-footer__ochre">ETR</span>
           <span class="site-footer__teal">AIL</span> of Ak
         </p>
         <div class="site-footer__rights-project">
-          <p class="site-footer__rights-label">Project Code</p>
-          <p class="site-footer__rights-name">Rerurate Digital Garden Explorer　Riebeckite</p>
+          <p class="site-footer__rights-label">Project code</p>
+          <p class="site-footer__rights-name" aria-label="Rerurate Digital Garden Explorer Riebeckite">
+            <span>Rerurate</span>
+            <span>Digital garden</span>
+            <span>Explorer</span>
+            <span>Riebeckite</span>
+          </p>
         </div>
-        <p class="site-footer__respect">
-          I respect Kristen Wright and LT's design team.
-        </p>
+        <p class="site-footer__respect">With respect to Kristen Wright and LT's design team.</p>
         <p class="site-footer__copyright">
           {year} © Rerurate_514, All Rights Reserved
         </p>
