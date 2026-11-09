@@ -120,7 +120,7 @@ export default defineConfig({
         copyFailedLabel: "コピーできませんでした",
       },
     }),
-    sidenotes({ placement: "margin", ariaLabel: "補足", openLabel: "脚注" }),
+    sidenotes({ placement: "end", ariaLabel: "補足", openLabel: "脚注" }),
     toc(),
     codeEnhance({ lineNumbers: true, copyButton: true, filename: true, lineHighlight: true, diffHighlight: true }),
     search(),
