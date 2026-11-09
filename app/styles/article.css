@@ -45,6 +45,10 @@
   padding-block-start: 1rem;
 }
 
+.site-article__aside .rr-table-of-contents {
+  padding-block: 0;
+}
+
 .site-article__aside .rr-backlinks__link {
   border-bottom: 0;
 }
