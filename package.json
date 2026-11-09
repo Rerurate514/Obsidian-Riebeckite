@@ -23,6 +23,7 @@
     "@riebeckite/plugin-canvas": "^0.0.42",
     "@riebeckite/plugin-code-enhance": "^0.0.42",
     "@riebeckite/plugin-color-mode": "^0.0.42",
+    "@riebeckite/plugin-diagnostics": "^0.0.42",
     "@riebeckite/plugin-folder-pages": "^0.0.42",
     "@riebeckite/plugin-hard-breaks": "^0.0.42",
     "@riebeckite/plugin-highlight": "^0.0.42",

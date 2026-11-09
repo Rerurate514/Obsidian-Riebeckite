@@ -32,6 +32,7 @@ import { ux } from "@riebeckite/plugin-ux";
 import { textFragment } from "@riebeckite/plugin-text-fragment";
 import { sidenotes } from "@riebeckite/plugin-sidenotes";
 import { quality } from "@riebeckite/plugin-quality";
+import { diagnostics } from "@riebeckite/plugin-diagnostics";
 import { rerurateTheme } from "@riebeckite/theme-rerurate";
 
 const decodedPermalinkLookup = definePlugin({
@@ -147,5 +148,6 @@ export default defineConfig({
     autoCardLink(),
     mermaidPele(),
     quality(),
+    diagnostics()
   ],
 });
