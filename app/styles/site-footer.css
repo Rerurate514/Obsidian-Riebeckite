@@ -1,6 +1,6 @@
 .site-footer {
   width: 100%;
-  margin-block: var(--rb-space-8, 4rem) var(--rb-space-4, 2rem);
+  margin-block: var(--rb-space-8, 4rem) 0;
   color: var(--rb-color-muted);
   font-size: 0.85rem;
 }
