@@ -172,22 +172,6 @@
   font-size: 0.75rem;
 }
 
-.site-footer__meta {
-  display: flex;
-  width: min(100% - 2rem, 90rem);
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  margin: 0 auto;
-  padding: 0.85rem 0;
-  border-block-end: 1px solid var(--rb-color-border-strong);
-  font-size: 0.72rem;
-}
-
-.site-footer__meta a {
-  color: inherit;
-}
-
 @media (max-width: 47.99rem) {
   .site-footer__rights-name span:not(:last-child)::after {
     margin-inline: 0.2em;

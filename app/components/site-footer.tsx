@@ -53,12 +53,6 @@ export function SiteFooter() {
           {year} © Rerurate_514, All Rights Reserved
         </p>
       </div>
-      <p class="site-footer__meta">
-        <span>
-          Built with <a href="https://riebeckite.dev">Riebeckite</a>
-        </span>
-        <span>© Rerurate</span>
-      </p>
     </footer>
   );
 }
