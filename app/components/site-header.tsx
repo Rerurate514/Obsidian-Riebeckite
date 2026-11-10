@@ -13,6 +13,7 @@ function folderNavigation(manifest: ContentManifest) {
     if (entry.slug.includes("/") && folder) folders.add(folder);
   }
   return [...folders]
+    .filter((folder) => folder !== "Config")
     .sort((a, b) => a.localeCompare(b, "ja"))
     .map((folder) => ({
       label: folder.replace(/[-_]+/g, " ").replace(/^./, (char) => char.toUpperCase()),
