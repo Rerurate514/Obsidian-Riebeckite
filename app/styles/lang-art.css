@@ -20,23 +20,26 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 8px;
-  border-radius: 16px;
-  background-color: var(--rb-color-ink);
-  box-shadow: 2px 5px var(--rb-color-paper);
-  will-change: transform;
-}
-
-.site-lang-art__card--pull {
-  z-index: 10;
-  background-color: var(--rb-color-accent);
-  box-shadow: 2px 5px var(--rb-color-ink);
 }
 
 .site-lang-art__icon {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   height: auto;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: var(--rb-color-ink);
+  box-shadow: 2px 5px var(--rb-color-paper);
+  transform: translateY(100px) rotate3d(-10, 2, 4, 45deg);
+  will-change: transform;
+}
+
+.site-lang-art__icon--pull {
+  z-index: 10;
+  background-color: var(--rb-color-accent);
+  box-shadow: 2px 5px var(--rb-color-ink);
+  transform: translateY(100px) rotate3d(-10, 2, 4, 45deg) translateX(-64px) translateZ(75px);
 }
 
 .site-lang-art__icon--phone path {
@@ -49,11 +52,11 @@
   fill: var(--rb-color-paper);
 }
 
-.site-lang-art__icon--accent.site-lang-art__icon--phone path {
+.site-lang-art__icon--pull.site-lang-art__icon--phone path {
   stroke: var(--rb-color-accent);
 }
 
-.site-lang-art__icon--accent.site-lang-art__icon--flutter path {
+.site-lang-art__icon--pull.site-lang-art__icon--flutter path {
   fill: var(--rb-color-ink);
 }
 
@@ -69,13 +72,14 @@
     min-height: 110px;
   }
 
-  .site-lang-art__card {
+  .site-lang-art__icon {
     border-radius: 12px;
     box-shadow: 3px 3px var(--rb-color-paper);
   }
 
-  .site-lang-art__card--pull {
-    box-shadow: 3px 3px var(--rb-color-ink);
+  .site-lang-art__icon--pull {
+    box-shadow: 2px 5px var(--rb-color-ink);
+    transform: translateY(100px) rotate3d(-10, 2, 4, 45deg) translateX(-48px) translateZ(60px);
   }
 }
 
@@ -91,13 +95,14 @@
     min-height: 100px;
   }
 
-  .site-lang-art__card {
+  .site-lang-art__icon {
     border-radius: 8px;
     box-shadow: 2px 2px var(--rb-color-paper);
   }
 
-  .site-lang-art__card--pull {
-    box-shadow: 2px 2px var(--rb-color-ink);
+  .site-lang-art__icon--pull {
+    box-shadow: 2px 5px var(--rb-color-ink);
+    transform: translateY(100px) rotate3d(-10, 2, 4, 45deg) translateX(-32px) translateZ(40px);
   }
 
   .site-lang-art__icon--phone path {

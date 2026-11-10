@@ -5,7 +5,7 @@ const STACK = Array.from({ length: CARD_COUNT }, (_, index) => index);
 function TepoPhone({ accent }: { accent?: boolean }) {
   return (
     <svg
-      class={`site-lang-art__icon site-lang-art__icon--phone${accent ? " site-lang-art__icon--accent" : ""}`}
+      class={`site-lang-art__icon site-lang-art__icon--phone${accent ? " site-lang-art__icon--pull" : ""}`}
       width="128"
       height="128"
       viewBox="0 0 128 128"
@@ -28,7 +28,7 @@ function TepoPhone({ accent }: { accent?: boolean }) {
 function TepoFlutter({ accent }: { accent?: boolean }) {
   return (
     <svg
-      class={`site-lang-art__icon site-lang-art__icon--flutter${accent ? " site-lang-art__icon--accent" : ""}`}
+      class={`site-lang-art__icon site-lang-art__icon--flutter${accent ? " site-lang-art__icon--pull" : ""}`}
       xmlns="http://www.w3.org/2000/svg"
       width="128"
       height="128"
@@ -46,7 +46,7 @@ export function SvgLangImage() {
       <div class="site-lang-art__column">
         {STACK.map((index) => (
           <div
-            class={`site-lang-art__card${index === 4 ? " site-lang-art__card--pull" : ""}`}
+            class="site-lang-art__card"
             style={`transform: translateY(${(index + 1) * -15}px)`}
           >
             <TepoPhone accent={index === 4} />
@@ -56,7 +56,7 @@ export function SvgLangImage() {
       <div class="site-lang-art__column">
         {STACK.map((index) => (
           <div
-            class={`site-lang-art__card${index === 8 ? " site-lang-art__card--pull" : ""}`}
+            class="site-lang-art__card"
             style={`transform: translateY(${(index + 1) * -15}px)`}
           >
             <TepoFlutter accent={index === 8} />
