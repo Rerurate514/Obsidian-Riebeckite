@@ -8,7 +8,9 @@ import { RecentPosts } from "@riebeckite/plugin-recent-posts";
 import { RelatedPosts } from "@riebeckite/plugin-related-posts";
 import { TableOfContents } from "@riebeckite/plugin-toc";
 import { useSiteContext } from "@riebeckite/ui";
+import { LoneTrailHr } from "./lone-trail-hr";
 import { PoweredByRiebeckite } from "./powered-by-riebeckite";
+import { SvgLangImage } from "./svg-lang-image";
 
 function collapseNavigation(items: readonly NavigationItem[]): NavigationItem[] {
   return items.map((item) =>
@@ -39,11 +41,13 @@ export function SiteArticle() {
           <Breadcrumbs />
           <Properties />
           <ArticleBody />
+          <LoneTrailHr />
           <PoweredByRiebeckite />
           <RecentPosts />
           <ArticleFooter class="site-article__footer">
             <RelatedPosts />
           </ArticleFooter>
+          <SvgLangImage />
         </ArticleContent>
         <aside class="site-article__aside">
           <TableOfContents placement="desktop-rail" borders={{ blockEnd: false }} />

@@ -1,0 +1,23 @@
+.site-trail-hr {
+  display: flex;
+  width: 100%;
+  height: 2px;
+  margin-block: var(--rb-space-3, 1.5rem);
+}
+
+.site-trail-hr__segment {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.site-trail-hr__segment--red {
+  background-color: var(--rr-color-red, #802520);
+}
+
+.site-trail-hr__segment--ochre {
+  background-color: var(--rr-color-ochre, #ba8530);
+}
+
+.site-trail-hr__segment--teal {
+  background-color: var(--rr-color-green, #5c7f71);
+}

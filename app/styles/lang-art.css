@@ -1,0 +1,106 @@
+.site-lang-art {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  padding: 60px 20px 100px;
+  perspective: 1200px;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.site-lang-art__column {
+  position: relative;
+  width: 128px;
+  min-height: 150px;
+  transform-style: preserve-3d;
+}
+
+.site-lang-art__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: var(--rb-color-ink);
+  box-shadow: 2px 5px var(--rb-color-paper);
+  will-change: transform;
+}
+
+.site-lang-art__card--pull {
+  z-index: 10;
+  background-color: var(--rb-color-accent);
+  box-shadow: 2px 5px var(--rb-color-ink);
+}
+
+.site-lang-art__icon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-lang-art__icon--phone path {
+  stroke: var(--rb-color-paper);
+  fill: var(--rb-color-ink);
+  stroke-width: 2px;
+}
+
+.site-lang-art__icon--flutter path {
+  fill: var(--rb-color-paper);
+}
+
+.site-lang-art__icon--accent.site-lang-art__icon--phone path {
+  stroke: var(--rb-color-accent);
+}
+
+.site-lang-art__icon--accent.site-lang-art__icon--flutter path {
+  fill: var(--rb-color-ink);
+}
+
+@media (max-width: 768px) {
+  .site-lang-art {
+    gap: 20px;
+    padding: 50px 15px 80px;
+    perspective: 900px;
+  }
+
+  .site-lang-art__column {
+    width: 96px;
+    min-height: 110px;
+  }
+
+  .site-lang-art__card {
+    border-radius: 12px;
+    box-shadow: 3px 3px var(--rb-color-paper);
+  }
+
+  .site-lang-art__card--pull {
+    box-shadow: 3px 3px var(--rb-color-ink);
+  }
+}
+
+@media (max-width: 480px) {
+  .site-lang-art {
+    gap: 10px;
+    padding: 50px 10px 60px;
+    perspective: 600px;
+  }
+
+  .site-lang-art__column {
+    width: 64px;
+    min-height: 100px;
+  }
+
+  .site-lang-art__card {
+    border-radius: 8px;
+    box-shadow: 2px 2px var(--rb-color-paper);
+  }
+
+  .site-lang-art__card--pull {
+    box-shadow: 2px 2px var(--rb-color-ink);
+  }
+
+  .site-lang-art__icon--phone path {
+    stroke-width: 1.5px;
+  }
+}
