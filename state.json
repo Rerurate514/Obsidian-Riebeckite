@@ -1,9 +1,9 @@
 {
   "version": 1,
   "lastSuccess": {
-    "runId": "1451b5e7-ac76-430b-baae-2f2d6f172c5a",
-    "publishedAt": "2026-11-10T10:11:46.571Z",
-    "publicationFingerprint": "de58440fda388d40c4ac915c03e59c195d05ee53cf56e9a00df4caea295b9e9a",
+    "runId": "4fd36d08-1154-4377-9234-03ac5e420b09",
+    "publishedAt": "2026-11-10T15:22:15.452Z",
+    "publicationFingerprint": "8d866eb4573c2d875aee3469e8fea112e3076d1585d196a5f72931ce05e60cc4",
     "entries": [
       {
         "slug": "articles/2bitマルチプレクサ",
@@ -4714,7 +4714,7 @@
         "status": 308
       }
     ],
-    "artifactFingerprint": "dac51cf5c85929bc7b7a2c679f194b8538020e07c01ba19f4da5104d48cf19f6",
+    "artifactFingerprint": "193bbcccecac5857601738b032d64ceacbbe2253156ba310b0a60e109261f46f",
     "provider": "cloudflare-workers"
   }
 }
