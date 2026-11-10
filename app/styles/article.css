@@ -46,7 +46,7 @@
 }
 
 .site-article__aside .rr-table-of-contents {
-  padding-block: 0;
+  padding: 0;
 }
 
 @media (min-width: 76rem) {
