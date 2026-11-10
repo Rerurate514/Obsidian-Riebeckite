@@ -7,9 +7,10 @@ export function SiteFooter() {
   return (
     <footer class="site-footer rb-site-footer">
       <div class="site-footer__inner">
-        <div class="site-footer__identity">
-          <a href="/" class="site-footer__note">
-            {site?.config.site.title}
+        <div class="site-footer__brand">
+          <a href="/" class="site-footer__wordmark">
+            {site?.config.site.title.split(" ")[0] ?? "Rerurate"}
+            <span>.</span>
           </a>
           <p class="site-footer__author">
             <span>Created by</span>{" "}
@@ -32,26 +33,12 @@ export function SiteFooter() {
           </ul>
         </nav>
       </div>
-      <div class="site-footer__rights">
-        <p class="site-footer__rights-title">
-          Inspired by{" "}
-          <span class="site-footer__red">LON</span>
-          <span class="site-footer__ochre">ETR</span>
-          <span class="site-footer__teal">AIL</span> of Ak
-        </p>
-        <div class="site-footer__rights-project">
-          <p class="site-footer__rights-label">Project code</p>
-          <p class="site-footer__rights-name" aria-label="Rerurate Digital Garden Explorer Riebeckite">
-            <span>Rerurate</span>
-            <span>Digital garden</span>
-            <span>Explorer</span>
-            <span>Riebeckite</span>
-          </p>
+      <div class="site-footer__base">
+        <p class="site-footer__copyright">© {year} Rerurate_514</p>
+        <div class="site-footer__credit">
+          <p>Inspired by LONETRAIL of Ak.</p>
+          <p>With respect to Kristen Wright and LT's design team.</p>
         </div>
-        <p class="site-footer__respect">With respect to Kristen Wright and LT's design team.</p>
-        <p class="site-footer__copyright">
-          {year} © Rerurate_514, All Rights Reserved
-        </p>
       </div>
     </footer>
   );
