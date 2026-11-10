@@ -87,7 +87,9 @@ export default defineConfig({
       resolvePath: ({ content, id }) => (content.slug === "index" ? "/" : `/${id}`),
     }),
     seo({ sitemap: true, robots: true }),
-    ogImage({ preset: "card" }),
+    ogImage({
+      preset: "card",
+    }),
     highlight(),
     obsidianMarkdown(),
     colorMode(),
