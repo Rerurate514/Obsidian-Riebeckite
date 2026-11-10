@@ -32,7 +32,9 @@ export function SiteArticle() {
         <aside class="site-article__sidebar">
           <p class="site-article__sidebar-title">ノート</p>
           <SidebarNavigation
-            items={collapseNavigation(navigation?.primary ?? [])}
+            items={collapseNavigation(
+              (navigation?.primary ?? []).filter((item) => item.label !== "Config"),
+            )}
             label="ノート"
             collapsible
           />
