@@ -52,7 +52,7 @@ export function SiteArticle() {
           <SvgLangImage />
         </ArticleContent>
         <aside class="site-article__aside">
-          <TableOfContents placement="desktop-rail" borders={{ blockEnd: false }} />
+          <TableOfContents placement="desktop-rail" borders={{ blockStart: false, blockEnd: false }} />
           <Backlinks borders={{ items: false }} />
         </aside>
       </div>
